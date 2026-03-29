@@ -1,9 +1,9 @@
 <p>
-  <a href="https://github.com/待补充你的GitHub用户名/待补充仓库名">
+  <a href="https://github.com/openfrees/toonflow.git">
     <img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white" alt="GitHub" />
   </a>
   &nbsp;|&nbsp;
-  <a href="https://gitee.com/待补充你的Gitee用户名/待补充仓库名">
+  <a href="https://gitee.com/open_free/toonflow.git">
     <img src="https://img.shields.io/badge/Gitee-C71D23?style=flat-square&logo=gitee&logoColor=white" alt="Gitee" />
   </a>
 </p>
@@ -15,7 +15,7 @@
 
 <div align="center">
 
-<img src="./brand-mark-main.svg" alt="知剧AI Logo" height="120"/>
+<img src="https://www.zhijuu.com/brand-mark-main.svg" alt="知剧AI Logo" height="120"/>
 
 # 知剧AI
 
@@ -28,18 +28,6 @@
       前后端与桌面端一体化交付 🔥
     </b>
   </p>
-  <p align="center">
-    <a href="https://github.com/待补充你的GitHub用户名/待补充仓库名/stargazers">
-      <img src="https://img.shields.io/github/stars/待补充你的GitHub用户名/待补充仓库名?style=for-the-badge&logo=github" alt="Stars Badge" />
-    </a>
-    <a href="./LICENSE" target="_blank">
-      <img src="https://img.shields.io/badge/License-Non--Commercial-blue.svg?style=for-the-badge" alt="License Badge" />
-    </a>
-    <a href="https://github.com/待补充你的GitHub用户名/待补充仓库名/releases">
-      <img alt="release" src="https://img.shields.io/github/v/release/待补充你的GitHub用户名/待补充仓库名?style=for-the-badge" />
-    </a>
-  </p>
-  
   > 🚀 **一站式短剧工程**：AI 剧本生成 × 小说转剧本 × 分镜辅助 × 管理后台 × 桌面端封装，全流程覆盖！
 </div>
 
@@ -55,10 +43,6 @@
    支持小说项目、章节、剧情线到剧本的转换流程，适合影视改编类创作场景。
 - ✅ **分镜辅助**  
    围绕剧本场景生成分镜、封面和画面素材，提升后续视频制作效率。
-- ✅ **用户与会员体系**  
-   内置登录、充值、兑换码、会员权益等基础业务能力，方便直接开展本地业务体验。
-- ✅ **管理后台**  
-   集成 `/admin` 管理后台，支持用户、订单、反馈和系统配置管理，走 Egg 模板渲染。
 - ✅ **桌面端封装**  
    支持 Electron 联调与安装包构建，可输出 Windows / macOS 桌面客户端。
 
@@ -101,8 +85,6 @@
 
 - ✅ Node.js `>= 18`
 - ✅ npm `>= 9`
-- ✅ 开源版默认使用 SQLite，无需额外准备 MySQL / Redis
-- ✅ 如需桌面安装包，请准备 Electron 图标资源（`icons/icon.icns`、`icons/icon.ico`）
 
 ## 本机安装
 
@@ -110,9 +92,9 @@
 
 | 操作系统 | GitHub 下载                                                  | 网盘下载                                    | 说明           |
 | :------: | :----------------------------------------------------------- | :---------------------------------------------- | :------------- |
-| Windows  | [Release](https://github.com/待补充你的GitHub用户名/待补充仓库名/releases) | [网盘下载（待补充）](#) | 官方发布安装包 |
-|  macOS   | [Release](https://github.com/待补充你的GitHub用户名/待补充仓库名/releases) | [网盘下载（待补充）](#) | 官方发布安装包 |
-|  Linux   | [Release](https://github.com/待补充你的GitHub用户名/待补充仓库名/releases) | [网盘下载（待补充）](#) | 待提供         |
+| Windows  | [Release](https://github.com/openfrees/toonflow/releases) | [网盘下载（待补充）](#) | 官方发布安装包 |
+|  macOS   | [Release](https://github.com/openfrees/toonflow/releases) | [网盘下载（待补充）](#) | 官方发布安装包 |
+|  Linux   | [Release](https://github.com/openfrees/toonflow/releases) | [网盘下载（待补充）](#) | 待提供         |
 
 > 当前仓库已支持 Windows 和 macOS 打包。Release 页地址、网盘地址请后续补上。
 
@@ -121,8 +103,8 @@
 安装完成后，启动程序即可开始使用本服务。
 
 > ⚠️ **首次登录**  
-> 账号：`admin`　｜　密码：`admin123`  
-> 请登录后立即修改默认密码！
+> 账号：`手机号`　｜　密码：`随便设置`  
+> 没有任何验证本地登录，所以手机密码随便设置
 
 ## Docker 部署
 
@@ -138,8 +120,7 @@
 
 ```shell
 # 仓库地址待补充
-git clone https://github.com/待补充你的GitHub用户名/待补充仓库名.git
-cd 待补充仓库名
+git clone https://github.com/openfrees/toonflow.git
 ```
 
 推荐容器拆分方式：
@@ -154,8 +135,7 @@ cd 待补充仓库名
 
 ```shell
 # 先克隆项目（如已有则跳过）
-git clone https://github.com/待补充你的GitHub用户名/待补充仓库名.git
-cd 待补充仓库名
+git clone https://github.com/openfrees/toonflow.git
 
 # 前端生成本地静态资源
 cd storyweaver-web
@@ -171,8 +151,8 @@ npm install
 
 | 端口    | 用途           | 说明                    |
 | ------- | -------------- | ----------------------- |
-| `7001`  | 后端 API 服务  | Egg.js 默认开发端口     |
-| `3000`  | 前端开发服务   | Nuxt 3 默认开发端口     |
+| `7006`  | 后端 API 服务  | Egg.js 默认开发端口     |
+| `7005`  | 前端开发服务   | Nuxt 3 默认开发端口     |
 
 ### 数据持久化
 
@@ -206,94 +186,6 @@ docker exec -it 容器名 sh
 
 > ⚠️ 首次登录信息见 [本机安装 - 启动服务](#2-启动服务)
 
-## 云端部署
-
-### 一、服务器环境要求
-
-- **系统**：Ubuntu 20.04+ / CentOS 7+
-- **Node.js**：18+（推荐最新 LTS）
-- **内存**：2GB+
-
-### 二、服务器部署
-
-#### 1. 安装环境
-
-```bash
-# 安装 Node.js
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
-source ~/.bashrc
-nvm install 18
-# 安装 PM2
-npm install -g pm2
-```
-
-#### 2. 部署项目
-
-**从 GitHub 克隆：**
-
-```bash
-cd /opt
-git clone https://github.com/待补充你的GitHub用户名/待补充仓库名.git
-cd 待补充仓库名
-```
-
-**从 Gitee 克隆（国内推荐）：**
-
-```bash
-cd /opt
-git clone https://gitee.com/待补充你的Gitee用户名/待补充仓库名.git
-cd 待补充仓库名
-```
-
-安装依赖并构建：
-
-```bash
-cd storyweaver-api && npm install
-cd ../storyweaver-web && npm install
-npm run generate:local
-```
-
-#### 3. 启动后端服务
-
-```bash
-cd storyweaver-api
-npm run start
-```
-
-或使用 PM2：
-
-```bash
-pm2 start npm --name "storyweaver-api" -- run start
-pm2 startup
-pm2 save
-```
-
-#### 4. 常用命令
-
-```bash
-pm2 list              # 查看进程
-pm2 logs              # 查看日志
-pm2 restart all       # 重启服务
-pm2 monit             # 监控面板
-```
-
-> ⚠️ 首次登录信息见 [本机安装 - 启动服务](#2-启动服务)
-
-#### 5. 部署前端网站
-
-前端代码位于 `storyweaver-web`，可根据需要选择部署方式：
-
-```bash
-# 纯静态生成（推荐本地模式）
-cd storyweaver-web
-npm run generate:local
-
-# 生产环境构建（SSR 模式）
-npm run build:prod
-```
-
-> 💡 **说明**：静态生成后的资源在 `.output/public/` 目录，可直接交给 Nginx 代理。SSR 模式需要 Node.js 环境运行。
-
 ---
 
 # 🔧 开发流程指南
@@ -316,15 +208,13 @@ npm run build:prod
    **从 GitHub 克隆：**
 
    ```bash
-   git clone https://github.com/待补充你的GitHub用户名/待补充仓库名.git
-   cd 待补充仓库名
+   git clone https://github.com/openfrees/toonflow.git
    ```
 
    **从 Gitee 克隆（国内推荐）：**
 
    ```bash
-   git clone https://gitee.com/待补充你的Gitee用户名/待补充仓库名.git
-   cd 待补充仓库名
+   git clone https://gitee.com/open_free/toonflow.git
    ```
 
 2. **安装依赖**
@@ -459,7 +349,7 @@ npm run build:prod
 
 | 仓库             | 说明                               | GitHub                                             | Gitee                                            |
 | ---------------- | ---------------------------------- | -------------------------------------------------- | ------------------------------------------------ |
-| **知剧AI** | 完整项目（本仓库，推荐） | [GitHub](https://github.com/待补充你的GitHub用户名/待补充仓库名) | [Gitee](https://gitee.com/待补充你的Gitee用户名/待补充仓库名) |
+| **知剧AI** | 完整项目（本仓库，推荐） | [GitHub](https://github.com/openfrees/toonflow.git) | [Gitee](https://gitee.com/open_free/toonflow.git) |
 | **storyweaver-web** | 前端源代码（当前仓库子目录）       | 同上 | 同上 |
 | **storyweaver-api** | 后端源代码（当前仓库子目录）       | 同上 | 同上 |
 | **electron** | 桌面端源代码（当前仓库子目录）       | 同上 | 同上 |
@@ -507,8 +397,8 @@ npm run build:prod
 
 # 💌 联系我们
 
-<!-- 待补充：联系邮箱 -->
-📧 邮箱：[待补充](mailto:待补充?subject=知剧AI咨询)
+<!-- 联系邮箱 -->
+📧 邮箱：[toms6688@foxmail.com](mailto:toms6688@foxmail.com?subject=知剧AI咨询)
 
 ---
 
@@ -530,14 +420,6 @@ npm run build:prod
 
 如需获得商业授权许可，请通过邮箱与我们联系。
 
----
-
-# ⭐️ 星标历史
-
-<!-- 待补充：把下面的仓库路径替换成你的真实 GitHub 仓库路径 -->
-<!-- [![Star History Chart](https://api.star-history.com/svg?repos=你的GitHub用户名/你的仓库名&type=timeline&legend=top-left)](https://www.star-history.com/#你的GitHub用户名/你的仓库名&type=timeline&legend=top-left) -->
-
-> Star History 图表待补充，有了 GitHub 仓库地址后取消上面注释即可生效。
 
 ---
 

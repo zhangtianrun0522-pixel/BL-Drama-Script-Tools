@@ -21,6 +21,12 @@ export const useUserStore = defineStore('user', () => {
   /** 是否为本地开源模式 */
   const isLocalMode = computed(() => deployMode === 'localhost')
 
+  /** 是否在 Electron 桌面端运行（Electron 没有多标签页，跳转行为需要区别处理） */
+  const isElectron = computed(() => {
+    if (!import.meta.client) return false
+    return typeof navigator !== 'undefined' && navigator.userAgent.includes('Electron')
+  })
+
   /** 是否已登录 */
   const isLoggedIn = computed(() => !!token.value)
 
@@ -166,6 +172,7 @@ export const useUserStore = defineStore('user', () => {
     token,
     isLoggedIn,
     isLocalMode,
+    isElectron,
     deployMode,
     showLoginModal,
     targetPath,

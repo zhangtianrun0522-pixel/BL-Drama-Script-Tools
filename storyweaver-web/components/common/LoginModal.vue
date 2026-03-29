@@ -117,7 +117,7 @@
                   <p v-if="!isLocalMode" class="login-modal__switch-tip">还没设置密码？<a href="javascript:;" @click="activeTab = 'phone'">使用手机号登录</a></p>
                 </div>
 
-                <p class="login-modal__agreement">登录即是同意 <a href="javascript:;">《用户协议》</a> 和 <a href="javascript:;">《隐私协议》</a></p>
+                <p class="login-modal__agreement">登录即是同意 <a href="javascript:;" @click="openPolicyPage('/terms-of-service')">《用户协议》</a> 和 <a href="javascript:;" @click="openPolicyPage('/privacy-policy')">《隐私协议》</a></p>
               </template>
 
               <!-- ====== 视图2：首次登录设置密码（仅 network 模式验证码登录后） ====== -->
@@ -172,6 +172,7 @@ defineProps({ visible: Boolean })
 const emit = defineEmits(['close', 'success'])
 
 const userStore = useUserStore()
+const router = useRouter()
 const { get, post } = useApi()
 const { showToast } = useToast()
 
@@ -239,6 +240,15 @@ const brandFeatures = computed(() => [
     desc: '改编、拆解、生成一站完成',
   },
 ])
+
+/** 打开协议页面：Electron 走当前页跳转（不关弹窗，返回后弹窗自动恢复），浏览器走新标签页 */
+const openPolicyPage = (path) => {
+  if (userStore.isElectron) {
+    router.push(path)
+  } else {
+    window.open(path, '_blank')
+  }
+}
 
 /* ===== 关闭弹窗 ===== */
 const handleClose = () => {
