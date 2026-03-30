@@ -60,12 +60,6 @@
                 <span>{{ userStore.userInfo.membershipLevelName || userStore.userInfo.vipTierName }}</span>
               </div>
             </template>
-            <template v-else>
-              <div class="topbar__action-links">
-                <span class="topbar__action-link" @click="navigateTo('/recharge')">开会员</span>
-                <span class="topbar__action-link" @click="navigateTo('/write')">写剧本</span>
-              </div>
-            </template>
           </template>
 
           <!-- 头像 + 弹窗容器 -->
@@ -367,33 +361,6 @@ onUnmounted(() => {
   background: var(--color-border);
 }
 
-/* ====== 非会员：操作链接 ====== */
-.topbar__action-links {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-}
-
-.topbar__action-link {
-  padding: 5px 12px;
-  border-radius: 18px;
-  color: var(--color-primary, #22c55e);
-  font-weight: 600;
-  font-size: 0.8rem;
-  cursor: pointer;
-  white-space: nowrap;
-  transition: all 0.2s;
-  background: transparent;
-}
-
-.topbar__action-link:first-child {
-  background: linear-gradient(135deg, #f0fdf4, #dcfce7);
-}
-
-.topbar__action-link:hover {
-  background: linear-gradient(135deg, #dcfce7, #bbf7d0);
-  transform: translateY(-1px);
-}
 
 /* ====== VIP等级徽章 ====== */
 .topbar__vip-badge {
