@@ -97,9 +97,7 @@ jobs:
 
       - name: Build installer
         working-directory: electron
-        run: npx electron-builder ${{ matrix.target }}
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: npx electron-builder ${{ matrix.target }} --publish never
 
       # ============ 上传产物 ============
       - name: Upload build artifacts
