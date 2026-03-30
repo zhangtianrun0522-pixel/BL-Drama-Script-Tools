@@ -34,6 +34,15 @@ jobs:
         with:
           node-version: "20"
 
+      # ============ 从 tag 同步版本号到 package.json ============
+      - name: Sync version from git tag
+        shell: bash
+        run: |
+          VERSION="${GITHUB_REF_NAME#v}"
+          echo "Syncing version to: $VERSION"
+          cd electron
+          node -e "const p=require('./package.json'); p.version='$VERSION'; require('fs').writeFileSync('./package.json', JSON.stringify(p, null, 2)+'\n')"
+
       # ============ 构建前端 SSG 静态文件 ============
       - name: Install frontend dependencies
         working-directory: storyweaver-web
@@ -77,14 +86,14 @@ jobs:
         working-directory: electron/resources/server
         run: npm install --production
 
-      - name: Rebuild sqlite3 for Electron
-        working-directory: electron
-        run: npx @electron/rebuild -f -w sqlite3 -m resources/server
-
-      # ============ 安装 Electron 依赖 + 打包 ============
+      # ============ 安装 Electron 依赖 + 重建原生模块 + 打包 ============
       - name: Install electron dependencies
         working-directory: electron
         run: npm install
+
+      - name: Rebuild sqlite3 for Electron
+        working-directory: electron
+        run: npx @electron/rebuild -f -w sqlite3 -m resources/server
 
       - name: Build installer
         working-directory: electron

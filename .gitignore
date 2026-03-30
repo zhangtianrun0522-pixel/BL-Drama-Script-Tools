@@ -43,6 +43,10 @@ storyweaver-web/dist
 electron/dist/
 electron/resources/
 
+# 本地发版脚本（不提交）
+release.sh
+electron/releases.sh
+
 # Coverage and reports
 coverage/
 *.lcov
