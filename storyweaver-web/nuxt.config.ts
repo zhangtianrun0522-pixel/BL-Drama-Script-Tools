@@ -30,7 +30,7 @@ export default defineNuxtConfig({
       baiduAnalyticsKey: '',
       officialSiteUrl: 'https://www.zhijuu.com',
       giteeRepoUrl: 'https://gitee.com/open_free/toonflow',
-      githubRepoUrl: 'https://github.com/open_free/toonflow',
+      githubRepoUrl: 'https://github.com/openfrees/toonflow',
     },
   },
 
