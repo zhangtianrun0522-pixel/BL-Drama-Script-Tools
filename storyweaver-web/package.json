@@ -2,9 +2,12 @@
   "name": "aistory-weaver-client",
   "private": true,
   "type": "module",
+  "engines": {
+    "node": ">=18.0.0 <22.0.0"
+  },
   "scripts": {
     "cleanup": "nuxi cleanup",
-    "dev": "nuxi cleanup && nuxt dev --dotenv .env.localhost",
+    "dev": "nuxt dev --dotenv .env.localhost",
     "build": "nuxt build",
     "build:prod": "nuxt build --dotenv .env.production",
     "generate": "nuxt generate",
@@ -15,8 +18,9 @@
   },
   "dependencies": {
     "@nuxt/icon": "^1.15.0",
+    "@nuxt/schema": "3.16.2",
     "@pinia/nuxt": "^0.9.0",
-    "nuxt": "^3.16.0",
+    "nuxt": "3.16.2",
     "pinia": "^2.3.0",
     "qrcode": "^1.5.4",
     "vue": "^3.5.0",

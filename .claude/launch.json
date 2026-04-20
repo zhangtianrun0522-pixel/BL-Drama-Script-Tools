@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "storyweaver-web",
+      "runtimeExecutable": "bash",
+      "runtimeArgs": ["-c", "PATH=/opt/homebrew/opt/node@20/bin:$PATH npm run dev"],
+      "port": 7005
+    }
+  ]
+}

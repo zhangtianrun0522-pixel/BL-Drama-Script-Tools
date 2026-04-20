@@ -18,7 +18,10 @@ temp/
 
 # Environment files
 storyweaver-api/.env
+storyweaver-api/.env.localhost
 storyweaver-api/.env.production
+storyweaver-web/.env
+storyweaver-web/.env.localhost
 storyweaver-web/.env.production
 storyweaver-api/app/public/uploads/
 
