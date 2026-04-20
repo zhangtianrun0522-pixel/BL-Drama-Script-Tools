@@ -235,25 +235,30 @@ router.post('/chat/send', async (req, res) => {
   await pipeSSE(res, generator, async (acc) => {
     if (acc.error) return;
 
-    await ProjectChatLog.create({
-      project_id: projectId, workflow_num: 'wf04', role: 'assistant', message: acc.outputText,
-    });
+    // 只保存非空的 assistant 消息
+    if (acc.outputText.trim()) {
+      await ProjectChatLog.create({
+        project_id: projectId, workflow_num: 'wf04', role: 'assistant', message: acc.outputText,
+      });
 
-    let totalEps = 60;
-    const epsMatch = acc.outputText.match(/共\s*(\d+)\s*集|第\s*(\d+)\s*集/g);
-    if (epsMatch) {
-      const nums = epsMatch.map(m => parseInt(m.replace(/\D/g, ''))).filter(n => n > 0);
-      if (nums.length) totalEps = Math.max(...nums);
+      let totalEps = 60;
+      const epsMatch = acc.outputText.match(/共\s*(\d+)\s*集|第\s*(\d+)\s*集/g);
+      if (epsMatch) {
+        const nums = epsMatch.map(m => parseInt(m.replace(/\D/g, ''))).filter(n => n > 0);
+        if (nums.length) totalEps = Math.max(...nums);
+      }
+
+      await EpisodeOutline.upsert({
+        project_id:            projectId,
+        content:               acc.outputText,
+        dify_conversation_id:  conversationId || '', // 保留字段，新实现不再使用
+        review_status:         'pending',
+        total_episodes:        totalEps,
+      });
     }
-
-    await EpisodeOutline.upsert({
-      project_id:            projectId,
-      content:               acc.outputText,
-      dify_conversation_id:  conversationId || '', // 保留字段，新实现不再使用
-      review_status:         'pending',
-      total_episodes:        totalEps,
-    });
-    await IpProject.update({ status: 'wf04_done' }, { where: { id: projectId } });
+    // 每轮对话结束后保持 wf04_running，允许继续多轮对话
+    // 状态变更为 wf04_done 只发生在 approve-outline?action=approve 时
+    await IpProject.update({ status: 'wf04_running' }, { where: { id: projectId } });
   });
 });
 
